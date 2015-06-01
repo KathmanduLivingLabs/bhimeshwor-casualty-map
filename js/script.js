@@ -49,8 +49,8 @@ var ramp = function(d, m) {
 
 // Projection parameters are located in the individual scripts for each endpoint (indexscript, iframescript)
 
-var graticulex = 0.2;
-var graticuley = 0.2; 
+var graticulex = 0.02;
+var graticuley = 0.02; 
 
 var projection = d3.geo.albers()
   .scale(scale)    
