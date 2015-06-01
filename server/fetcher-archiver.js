@@ -31,7 +31,7 @@ fs.readFile(filename, {
 });
 }
 
-request("https://docs.google.com/spreadsheets/d/1qnsJw_UkYDy_fswUYgaQyb4sD76xIN_T7Qi97Rnq2-Y/export?format=csv&gid=528772735", function(error, response, data){
+request("https://docs.google.com/spreadsheets/d/1qnsJw_UkYDy_fswUYgaQyb4sD76xIN_T7Qi97Rnq2-Y/export?format=csv&gid=2069740210", function(error, response, data){
     if (error || response.statusCode !== 200) return "error: "+ response.statusCode;
     var csvLinesArray = data.trim().replace(/\"/g,"").split("\n");
     csvLine = csvLinesArray[1].split(",");
@@ -46,17 +46,20 @@ request("https://docs.google.com/spreadsheets/d/1qnsJw_UkYDy_fswUYgaQyb4sD76xIN_
     updateFile("../iframe-full-width.html");
     updateFile("../iframe.html");
 
-    var archiveFilename = "data-"+updateTimestamp["update-date"].replace(/:/g,".").replace(/ /g,"-")+".csv";
+/**this data is archived at district level, no need to archive at vdc/municipal level again**/
+
+    /*var archiveFilename = "data-"+updateTimestamp["update-date"].replace(/:/g,".").replace(/ /g,"-")+".csv";
 
     request
   .get("https://docs.google.com/spreadsheets/d/1qnsJw_UkYDy_fswUYgaQyb4sD76xIN_T7Qi97Rnq2-Y/export?format=csv&gid=787276582")
   .on('error', function(err) {
     console.log(err)
-  }).pipe(fs.createWriteStream(archiveFilename));
+  }).pipe(fs.createWriteStream(archiveFilename));*/
+/****/
 });
 
 request
-  .get("https://docs.google.com/spreadsheets/d/1qnsJw_UkYDy_fswUYgaQyb4sD76xIN_T7Qi97Rnq2-Y/export?format=csv&gid=933548789")
+  .get("https://docs.google.com/spreadsheets/d/1qnsJw_UkYDy_fswUYgaQyb4sD76xIN_T7Qi97Rnq2-Y/export?format=csv&gid=1488833609")
   .on('error', function(err) {
     console.log(err)
   }).pipe(fs.createWriteStream("data.csv"));
