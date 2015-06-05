@@ -56,8 +56,8 @@ var projection = d3.geo.albers()
   .scale(scale)    
   .rotate([yaw, pitch, roll]) //yaw, pitch, roll    ;  
 
-var graticule = d3.geo.graticule()
-  .step([graticulex, graticuley]);
+/*var graticule = d3.geo.graticule()
+  .step([graticulex, graticuley]);*/
 
 var path = d3.geo.path()
     .projection(projection);
@@ -66,10 +66,10 @@ var svg = d3.select("body").select("#map").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-svg.append("path")
+/*svg.append("path")
   .datum(graticule)
   .attr("class", "graticule")
-  .attr("d", path);
+  .attr("d", path);*/
   
 queue()
     .defer(d3.json, "data/districts_topo.json")    
